@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dahej Calculator (For Educational Purposes Only)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-xl">
+    <h1 class="text-2xl font-bold mb-2 text-center">🧮 Dahej Calculator</h1>
+    <p class="text-lg text-center font-small text-gray-500">Created by Ravi Singh Rajput</p>
+    <p class="text-sm text-red-500 mb-4 text-center">
+      ⚠️ This tool is for satire/education only. Dowry is illegal and unethical.
+    </p>
+
+    <form id="calculatorForm" class="space-y-4">
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" min="18" class="w-full border rounded p-2" required>
+      </div>
+
+      <div>
+        <label for="occupation">Occupation:</label>
+        <select id="occupation" class="w-full border rounded p-2" required>
+          <option value="">Select</option>
+          <option value="unemployed">Unemployed</option>
+          <option value="government officer">Government Officer</option>
+          <option value="chartered accountant">Chartered Accountant</option>
+          <option value="banker">Banker</option>
+          <option value="army officer">Army Officer</option>
+          <option value="teacher">Teacher</option>
+          <option value="professor">Professor</option>
+          <option value="engineer">Engineer</option>
+          <option value="doctor">Doctor</option>
+          <option value="software engineer">Software Engineer</option>
+          <option value="business analyst">Business Analyst</option>
+          <option value="civil servant">Civil Servant</option>
+          <option value="pilot">Pilot</option>
+          <option value="lawyer">Lawyer</option>
+          <option value="actor">Actor</option>
+          <option value="musician">Musician</option>
+          <option value="entrepreneur">Entrepreneur</option>
+          <option value="freelancer">Freelancer</option>
+          <option value="graphic designer">Graphic Designer</option>
+          <option value="marketing manager">Marketing Manager</option>
+          <option value="sales executive">Sales Executive</option>
+          <option value="nurse">Nurse</option>
+          <option value="police officer">Police Officer</option>
+          <option value="firefighter">Firefighter</option>
+          <option value="data scientist">Data Scientist</option>
+          <option value="mechanic">Mechanic</option>
+          <option value="chef">Chef</option>
+          <option value="architect">Architect</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="salary">Monthly Salary (INR):</label>
+        <select id="salary" class="w-full border rounded p-2" required>
+          <option value="">Select</option>
+          <option value="unemployed">Unemployed</option>
+          <option value="10000">0–25,000</option>
+          <option value="25000">25,001–50,000</option>
+          <option value="50000">50,001–75,000</option>
+          <option value="75000">75,001–1,00,000</option>
+          <option value="100000">1,00,001+</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="house">House Type:</label>
+        <select id="house" class="w-full border rounded p-2" required>
+          <option value="">Select</option>
+          <option value="self">Self-Owned</option>
+          <option value="rented">Rented</option>
+          <option value="parents">Parents House</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="area">Residential Area:</label>
+        <select id="area" class="w-full border rounded p-2" required>
+          <option value="">Select</option>
+          <option value="urban">Urban</option>
+          <option value="rural">Rural</option>
+          <option value="metro">Metrocity</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="state">State:</label>
+        <select id="state" class="w-full border rounded p-2" required>
+          <option value="">Select</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+          <option value="Delhi">Delhi</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" value="India" class="w-full border rounded p-2" readonly>
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+        Calculate Dahej
+      </button>
+    </form>
+
+    <div id="result" class="mt-6 text-center text-lg font-semibold text-green-600"></div>
+  </div>
+
+  <script>
+    document.getElementById('calculatorForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const age = parseInt(document.getElementById('age').value);
+      const salary = document.getElementById('salary').value;
+      const houseType = document.getElementById('house').value;
+      const area = document.getElementById('area').value.toLowerCase();
+      const state = document.getElementById('state').value.toLowerCase();
+      const country = document.getElementById('country').value.toLowerCase();
+      const occupation = document.getElementById('occupation').value.toLowerCase();
+
+      if (!age || !salary || !houseType || !area || !state || !country || !occupation) {
+        document.getElementById('result').innerText = 'Please fill out all fields.';
+        return;
+      }
+
+      if (age < 18) {
+        document.getElementById('result').innerText = 'You are Not Eligible for Dahej';
+        return;
+      }
+
+      if (salary === 'unemployed') {
+        document.getElementById('result').innerText = 'You are Not Eligible for Dahej';
+        return;
+      }
+
+      let dahej = parseFloat(salary) * 24;
+
+      if (age < 30) dahej += 500000;
+      else if (age > 35) dahej -= 500000;
+
+      const highSalaryOccupations = ["government officer", "chartered accountant", "banker", "army officer", "teacher", "professor"];
+      if (highSalaryOccupations.includes(occupation)) {
+        dahej += 1000000;
+      }
+
+      if (houseType === 'self') dahej += 1000000;
+      else if (houseType === 'parents') dahej += 500000;
+
+      if (area.includes("metro")) dahej += 500000;
+      if (state.includes("delhi") || state.includes("maharashtra")) dahej += 300000;
+      if (country !== "india") dahej += 1500000;
+
+      document.getElementById('result').innerText =
+        `Estimated (Satirical) Dahej Value: ₹${Math.round(dahej).toLocaleString()}`;
+    });
+  </script>
+</body>
+</html>
